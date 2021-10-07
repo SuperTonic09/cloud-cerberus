@@ -20,8 +20,8 @@ The NIST Special Publication (SP) 800-210, [General Access Control Guidance for 
 ## Future Enhancement Considerations
 - Split the main code into smaller modules.
 - Devise a mechanism to input a list, or policy sets, as a dynamic collection —rather than static checks.
-- Leverage Azure Policy Regulatory Compliance built-in initiative definitions, that map compliance domains and controls to NIST SP 800-53.
-- Expand the above, and research if feasible to adopt native solutions for Amazon Web Services, and Google Cloud Platform.
+- Leverage cloud native solutions that map compliance domains and controls to NIST SP 800-53, like Azure Policy Regulatory Compliance built-in initiative definitions.
+- Expanding on the above, research if technical equivalents are feasible for Amazon Web Services, and Google Cloud Platform.
 - _TBC_
 
 ## Author
