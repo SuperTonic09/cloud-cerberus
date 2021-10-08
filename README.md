@@ -41,11 +41,18 @@ The NIST Special Publication (SP) 800-210, [General Access Control Guidance for 
 ## Author
 [Roberto Sosa](https://github.com/SuperTonic09)
 
-
-# Note to Self
-## To Do
+## (Others) To Do
+- Review applicable permissive license: Apache, or MIT
 - Search for top Azure CLI excerpts (3 examples at least)
 - Consider the mapping from the native Azure Compliance built-in initiative definitions
 
 ## References
 - [Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in initiative](https://docs.microsoft.com/en-us/azure/governance/policy/samples/nist-sp-800-53-r4)
+- [Configure your local Python dev environment for Azure](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=cmd)
+
+## Getting Started
+```
+cd /Users/robertos/Documents/databricks
+python3 -m venv .venv 
+source .venv/bin/activate
+```
