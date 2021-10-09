@@ -29,9 +29,10 @@ For this proof of concept, we will be evaluating the following environment(s):
 The [General Access Control Guidance for Cloud Systems](https://csrc.nist.gov/publications/detail/sp/800-210/final) served as the initial reference for this assignment, as it represents a comprehensive understanding of security challenges in cloud systems, for all three service delivery models —Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Although, while the appendix provides a layout for the control families listed in NIST SP 800-53, after analyzing these, one will find that the guidance provided can still be quite broad, and not particularly prescriptive (in terms of programmatic conditions) to a provider specific configuration. And thus, to make each case example easier to illustrate, we also considered expressing our interpretations of the Cybersecurity Framework (CSF) as a mapping to other standards where applicable —for example CIS Controls, or Cloud Controls Matrix (CCM). This was not meant to avoid any definitions from our initial requirements, but instead to facilitate our implementation where such sub-controls are written more explicitly. The later was fundamental during our research process, as we prepared for this activity.
 
 ## Prerequisites
-The Azure Command-Line Interface ([CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)) allows the execution of commands through a terminal using interactive command-line prompts or a script —on macOS run the command:
+The Azure Command-Line Interface ([CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)) allows the execution of commands through the terminal —for macOS run:
 `brew update && brew install azure-cli`
 
+The use of a [_virtual environment_](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=bash#use-python-virtual-environments) is recommended for the following step:
 `pip3 install -r requirements.txt`
 
 
