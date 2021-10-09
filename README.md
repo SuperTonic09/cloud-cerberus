@@ -26,7 +26,7 @@ For this proof of concept, we will be evaluating the following environment(s):
 ```
 
 ## Approach
-The NIST Special Publication (SP) 800-210, [General Access Control Guidance for Cloud Systems](https://csrc.nist.gov/publications/detail/sp/800-210/final), served as the initial reference for this assignment, as it represents a comprehensive understanding of security challenges in cloud systems, in all three service delivery models —Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Although, while the appendix provides a table map for the control families as listed in NIST SP 800-53, after analyzing these, one will find that the guidance provided can still be quite broad, and not particularly prescriptive (in terms of programmatic conditions) to a provider specific configuration. And thus, to make each case example easier to illustrate, we also considered expressing our interpretations of the NIST Cybersecurity Framework (CSF) as a mapping to other frameworks and standards where applicable —for example CIS Controls, or Cloud Controls Matrix (CCM). This was not meant to avoid any definitions from our initial requirements, but instead to facilitate our implementation where such sub-controls are written more explicitly. The later was fundamental in our research process, as we prepared for this activity.
+The [General Access Control Guidance for Cloud Systems](https://csrc.nist.gov/publications/detail/sp/800-210/final) served as the initial reference for this assignment, as it represents a comprehensive understanding of security challenges in cloud systems, for all three service delivery models —Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Although, while the appendix provides a layout for the control families listed in NIST SP 800-53, after analyzing these, one will find that the guidance provided can still be quite broad, and not particularly prescriptive (in terms of programmatic conditions) to a provider specific configuration. And thus, to make each case example easier to illustrate, we also considered expressing our interpretations of the Cybersecurity Framework (CSF) as a mapping to other standards where applicable —for example CIS Controls, or Cloud Controls Matrix (CCM). This was not meant to avoid any definitions from our initial requirements, but instead to facilitate our implementation where such sub-controls are written more explicitly. The later was fundamental during our research process, as we prepared for this activity.
 
 ## Usage
 `python3 cerberus.py`
@@ -42,7 +42,7 @@ The NIST Special Publication (SP) 800-210, [General Access Control Guidance for 
 [Roberto Sosa](https://github.com/SuperTonic09)
 
 ## (Others) To Do
-- Review applicable permissive license: Apache, or MIT
+- Review applicable licenses: Apache, or MIT
 - Search for top Azure CLI excerpts (3 examples at least)
 - Consider the mapping from the native Azure Compliance built-in initiative definitions
 
