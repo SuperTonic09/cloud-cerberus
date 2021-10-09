@@ -31,8 +31,7 @@ The [General Access Control Guidance for Cloud Systems](https://csrc.nist.gov/pu
 ## Getting Started
 ```
 brew update && brew upgrade azure-cli
-python3 --version
-az --version   
+pip3 install -r requirements.txt
 ```
 
 ## Usage
