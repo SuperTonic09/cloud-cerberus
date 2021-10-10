@@ -17,6 +17,7 @@
 
 
 
+
 # Avoid this approach:
 # import os
 # az_account_list = "az account list --query '[*].id'"
