@@ -9,11 +9,13 @@
 # =============================================================================
 
 # Pre-Game Steps:
-# pip install -r requirements.txt 
-# pip3 install azure-cli
-# az login
+# pip install -r requirements.txt           ## DELETE, don't want to touch user system here/now;
+# pip3 install azure-cli                    ## Instead suggest in README
+# az login                                  ## Consider Azure Auth alternative?
 # az account list --query '[*].id'
 # az role assignment list --subscription 63a7f75b-08dc-47f7-b481-b39c22b031f6 --role "Owner" --query '[*].principalName'
+
+
 
 # Avoid this approach:
 # import os
