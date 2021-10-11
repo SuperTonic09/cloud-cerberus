@@ -37,14 +37,18 @@ The use of a [_virtual environment_](https://docs.microsoft.com/en-us/azure/deve
 
 
 ## Usage
+`source ./setenv.sh`
 `python3 cerberus.py`
 
 ## Future Enhancement Considerations
 - Split the main code into smaller modules.
+- If absolutely required to call Azure CLI from Python, we would need to implement a function to properly parse `.invoke()` —as it always returns the error code as output.
 - Devise a mechanism to input a list, or policy sets, as a dynamic collection —rather than static checks.
 - Leverage cloud native solutions that map compliance domains and controls to NIST SP 800-53, like Azure Policy Regulatory Compliance built-in initiative definitions.
 - Expanding on the above, research if technical equivalents are feasible for Amazon Web Services, and Google Cloud Platform.
-- _TBC_
+- Consider adopting [Az.Cli](https://markwarneke.me/2021-03-14-Query-Azure-Resources-Using-Python/)
+- Since this demo is running [locally](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-authenticate#identity-when-running-the-app-locally), we are constrained from assigning a [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). 
+_TBC_
 
 ## Author
 [Roberto Sosa](https://github.com/SuperTonic09)
@@ -64,3 +68,8 @@ cd /Users/robertos/Documents/databricks
 python3 -m venv .venv 
 source .venv/bin/activate
 ```
+## Notes on The Azure SDK for Python
+- The use of `azure.cli.core` is not as easy to read, for the purpose of adopting examples, as the management REST API.
+- Additionally, it appears that most of the community simply leverages the standard shell commands as-is.
+- While the use of the `subprocess` solution may not be as portable, the `pypi azure-cli` will bloat the requirements over time.
+- That's because the Azure SDK for Python is composed of over 180 individual libraries that relate to specific Azure services.
