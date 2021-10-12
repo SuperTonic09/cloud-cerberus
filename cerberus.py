@@ -18,7 +18,7 @@ import sca_collection
 try:
     cloud_auth.az_login()
 except:
-    print('Failed to authenticate with provider')
+    print('\nFailed to authenticate with provider(s)\n')
     sys.exit(1)
 
 print('\nCloud Cerberus checks starting...\n')
