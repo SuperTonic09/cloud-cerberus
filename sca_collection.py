@@ -19,7 +19,7 @@ def test_case_1():
 
     print(json.dumps(sub_list, indent=4, sort_keys=True))
 
-    # Since each account can have multiple subscriptions, append to a final list: 
+    # Since each account can have multiple subscriptions, parse a final id list
     sub_ids = []
     for id in range(len(sub_list)):
         sub_ids.append(sub_list[id]['id'])
