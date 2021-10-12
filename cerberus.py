@@ -15,6 +15,7 @@ import sys
 import cloud_auth
 import sca_collection
 
+
 try:
     cloud_auth.az_login()
 except:
@@ -22,5 +23,4 @@ except:
     sys.exit(1)
 
 print('\nCloud Cerberus checks starting...\n')
-
 sca_collection.test_case_1()

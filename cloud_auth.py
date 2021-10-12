@@ -5,6 +5,7 @@ from os import error
 
 from client_credentials import *
 
+
 def az_login():
     # Microsoft Azure
     az_auth_args = 'az login --service-principal' \

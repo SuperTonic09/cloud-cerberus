@@ -3,6 +3,7 @@
 import json
 import subprocess
 
+
 def test_case_1():
     """Account Management
     
@@ -45,3 +46,16 @@ def test_case_1():
             print('Security Control Assessment: “Other Than Satisfied”\n')
 
     return test_result
+
+def test_case_2():
+    """Access Enforcement
+    
+    ID: NIST SP 800-53 Rev. 4 AC-3
+    Description: Although SSH itself provides an encrypted connection, 
+    using passwords with SSH still leaves the VM vulnerable to brute-force attacks. 
+    The most secure option for authenticating to an Azure Linux virtual machine over SSH 
+    is with a public-private key pair, also known as SSH keys. 
+
+    Possible Remediating Actions:
+    sudo waagent -deprovision -force
+    """
