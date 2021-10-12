@@ -6,7 +6,7 @@
 # Version : 0.0.0
 # Status  : Prototype
 # =============================================================================
-"""Coding Exercise: Staff Security Engineer"""
+"""Coding Exercise: Staff Security Engineer (Role)"""
 # =============================================================================
 
 import subprocess
@@ -41,18 +41,18 @@ print(json.dumps(sub_list, indent=4, sort_keys=True))
 
 # Since each account can have multiple subscriptions, append to a final list: 
 sub_ids = []
-for i in range(len(sub_list)):
-    sub_ids.append(sub_list[i]['id'])
+for id in range(len(sub_list)):
+    sub_ids.append(sub_list[id]['id'])
 
-for i in range(len(sub_ids)):
-    az_role_args = 'az role assignment list --subscription ' + sub_ids[i] \
+for id in range(len(sub_ids)):
+    az_role_args = 'az role assignment list --subscription ' + sub_ids[id] \
         + ' --role "Owner" --query \'[*].principalId\''
     
     az_role_check = subprocess.check_output(az_role_args, shell=True)
     sub_owner_list = json.loads(az_role_check)
     owner_count = len(sub_owner_list)
     
-    print('\nSubscription ID:', sub_ids[i])
+    print('\nSubscription ID:', sub_ids[id])
     print(json.dumps(sub_owner_list, indent=4, sort_keys=True), '\n')
 
     print('Total number of owners identified:', owner_count, '\n')
