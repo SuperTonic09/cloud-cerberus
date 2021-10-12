@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 # =============================================================================
 # Author  : Roberto Sosa
 # Created : October 2021
@@ -9,13 +8,18 @@
 """Coding Exercise: Staff Security Engineer (Role)"""
 # =============================================================================
 
-import subprocess
 import json
+import subprocess
+import sys
 
 import cloud_auth
 import sca_collection
 
-cloud_auth.az_login()
+try:
+    cloud_auth.az_login()
+except:
+    print('Failed to authenticate with provider')
+    sys.exit(1)
 
 print('\nCloud Cerberus checks starting...\n')
 

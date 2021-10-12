@@ -10,7 +10,7 @@ def az_login():
     az_auth_args = 'az login --service-principal' \
     + ' -u ' + az_client_id + ' -p ' + az_client_secret + ' -t ' + az_tenant_id
     
-    subprocess.run(az_auth_args, shell=True)
+    subprocess.run(az_auth_args, shell=True, check=True)
 
 def aws_login():
     # Amazon Web Services 
