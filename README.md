@@ -35,10 +35,11 @@ The Azure Command-Line Interface ([CLI](https://docs.microsoft.com/en-us/cli/azu
 The use of a [_virtual environment_](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=bash#use-python-virtual-environments) is recommended for the following step:
 `pip3 install -r requirements.txt`
 
-
 ## Usage
-`source ./setenv.sh`
 `python3 cerberus.py`
+
+## NIST Prescribed Terminology
+- Each Security Control Assessment will return a value of: “Satisfied” or “Other Than Satisfied”
 
 ## Future Enhancement Considerations
 - Split the main code into smaller modules.
