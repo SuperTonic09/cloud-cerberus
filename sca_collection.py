@@ -3,6 +3,7 @@
 import json
 import subprocess
 
+import cloud_rgs
 
 def test_case_1():
     """Account Management
@@ -15,15 +16,7 @@ def test_case_1():
     az role assignment create --role "Owner" --assignee <USER> --subscription <ID>
     """
 
-    az_accounts = subprocess.check_output('az account list', shell=True)
-    subscriptions = json.loads(az_accounts)
-
-    print(json.dumps(subscriptions, indent=4, sort_keys=True))
-
-    # Since each account can have multiple subscriptions, parse a final id list
-    sid_list = []
-    for id in range(len(subscriptions)):
-        sid_list.append(subscriptions[id]['id'])
+    sid_list = cloud_rgs.Azure.get_subs() 
 
     for id in range(len(sid_list)):
         az_role_args = 'az role assignment list --subscription ' + sid_list[id] \
@@ -59,3 +52,7 @@ def test_case_2():
     Possible Remediating Actions:
     sudo waagent -deprovision -force
     """
+
+    
+    
+    # az vm list --query '[*].id'
