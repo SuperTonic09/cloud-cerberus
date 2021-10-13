@@ -27,7 +27,7 @@ def test_case_1():
 
     for id in range(len(sub_ids)):
         az_role_args = 'az role assignment list --subscription ' + sub_ids[id] \
-            + ' --role "Owner" --query \'[*].principalId\''
+            + ' --role "Owner" --query \'[*].principalName\''
         
         az_role_check = subprocess.check_output(az_role_args, shell=True)
         sub_owner_list = json.loads(az_role_check)
