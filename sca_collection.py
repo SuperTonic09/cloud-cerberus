@@ -15,25 +15,25 @@ def test_case_1():
     az role assignment create --role "Owner" --assignee <USER> --subscription <ID>
     """
 
-    az_account_list = subprocess.check_output('az account list', shell=True)
-    sub_list = json.loads(az_account_list)
+    az_accounts = subprocess.check_output('az account list', shell=True)
+    subscriptions = json.loads(az_accounts)
 
-    print(json.dumps(sub_list, indent=4, sort_keys=True))
+    print(json.dumps(subscriptions, indent=4, sort_keys=True))
 
     # Since each account can have multiple subscriptions, parse a final id list
-    sub_ids = []
-    for id in range(len(sub_list)):
-        sub_ids.append(sub_list[id]['id'])
+    sid_list = []
+    for id in range(len(subscriptions)):
+        sid_list.append(subscriptions[id]['id'])
 
-    for id in range(len(sub_ids)):
-        az_role_args = 'az role assignment list --subscription ' + sub_ids[id] \
+    for id in range(len(sid_list)):
+        az_role_args = 'az role assignment list --subscription ' + sid_list[id] \
             + ' --role "Owner" --query \'[*].principalName\''
         
         az_role_check = subprocess.check_output(az_role_args, shell=True)
         sub_owner_list = json.loads(az_role_check)
         owner_count = len(sub_owner_list)
         
-        print('\nSubscription ID:', sub_ids[id])
+        print('\nSubscription ID:', sid_list[id])
         print(json.dumps(sub_owner_list, indent=4, sort_keys=True), '\n')
 
         print('Total number of owners identified:', owner_count, '\n')
