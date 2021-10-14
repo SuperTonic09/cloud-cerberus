@@ -5,11 +5,13 @@ import subprocess
 
 import cloud_rgs
 
+
 try:
     # Get a global list of subscription IDs just once ——performance optimization.
     sid_list = cloud_rgs.Azure.get_subs()
 except:
     raise ValueError('A valid subscription list is required to proceed.')
+
 
 def test_case_1():
     """Account Management
@@ -57,5 +59,30 @@ def test_case_2():
     sudo waagent -deprovision -force
     """
 
-    
-    # az vm list --query '[*].id'
+    for id in range(len(sid_list)):
+        cloud_rgs.Azure.az_account_set(sid_list[id])
+        
+        az_vm_args = "az vm list --query '[*].id'"
+
+        az_vm_query = subprocess.check_output(az_vm_args, shell=True)
+        az_vm_list = json.loads(az_vm_query)
+
+        if az_vm_list:
+            for vm in az_vm_list:
+                az_vm_args = 'az vm show --ids ' + vm + ' --query ' + \
+                    'osProfile.linuxConfiguration.disablePasswordAuthentication'
+                az_vm_check = subprocess.check_output(az_vm_args, shell=True)
+
+                test_result = az_vm_check.decode().strip()
+
+                print('\nSSH Keys enabled on compute:', vm)
+
+                if test_result == 'true':
+                    print('Security Control Assessment: “Satisfied”\n')
+                else:
+                    print('Security Control Assessment: “Other Than Satisfied”\n')
+        
+        else:
+            print('\nNo compute resources found for subscription:', sid_list[id])
+
+    return test_result

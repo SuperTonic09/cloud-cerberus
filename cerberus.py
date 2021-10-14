@@ -23,3 +23,4 @@ except:
 
 print('\nCloud Cerberus checks starting...\n')
 sca_collection.test_case_1()
+sca_collection.test_case_2()

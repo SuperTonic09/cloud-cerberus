@@ -15,3 +15,6 @@ class Azure:
         for id in range(len(subscriptions)):
             sid_list.append(subscriptions[id]['id'])
         return sid_list
+
+    def az_account_set(sid):
+        subprocess.run('az account set --subscription ' + sid, shell=True)
