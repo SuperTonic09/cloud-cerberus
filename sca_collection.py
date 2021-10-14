@@ -1,9 +1,15 @@
-# Performs Security Control Assessments
+# Performs Security Control Assessments.
 
 import json
 import subprocess
 
 import cloud_rgs
+
+try:
+    # Get a global list of subscription IDs just once ——performance optimization.
+    sid_list = cloud_rgs.Azure.get_subs()
+except:
+    raise ValueError('A valid subscription list is required to proceed.')
 
 def test_case_1():
     """Account Management
@@ -15,8 +21,6 @@ def test_case_1():
     Possible Remediating Actions:
     az role assignment create --role "Owner" --assignee <USER> --subscription <ID>
     """
-
-    sid_list = cloud_rgs.Azure.get_subs() 
 
     for id in range(len(sid_list)):
         az_role_args = 'az role assignment list --subscription ' + sid_list[id] \
@@ -53,6 +57,5 @@ def test_case_2():
     sudo waagent -deprovision -force
     """
 
-    
     
     # az vm list --query '[*].id'

@@ -1,4 +1,5 @@
-# Helper functions to enumerate resource group identifiers; as most CLI cases don't honor --all
+# Helper functions to enumerate resource group identifiers; 
+# Consider that most CLI cases don't honor --all.
 
 import json
 import subprocess
@@ -9,7 +10,7 @@ class Azure:
         az_accounts = subprocess.check_output('az account list', shell=True)
         subscriptions = json.loads(az_accounts)
 
-        # Since each account can have multiple subscriptions, parse a final id list
+        # Since each account can have multiple subscriptions, parse a final id list.
         sid_list = []
         for id in range(len(subscriptions)):
             sid_list.append(subscriptions[id]['id'])

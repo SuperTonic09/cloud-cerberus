@@ -1,4 +1,4 @@
-# Authenticates with multiple cloud providers
+# Authenticates with multiple cloud providers.
 
 import subprocess
 from os import error
