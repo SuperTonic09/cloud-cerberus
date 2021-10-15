@@ -112,10 +112,10 @@ def test_case_3():
             az_role_check = subprocess.check_output(az_role_args, shell=True)
             guest_role_list = json.loads(az_role_check)
 
-            if guest_role_list:
-                print(json.dumps(guest_role_list, indent=4, sort_keys=True), '\n')
-
+            if guest_role_list:    
                 writers = re.compile('Contributor|Owner|Admin', re.IGNORECASE)
+
+                print(json.dumps(guest_role_list, indent=4, sort_keys=True), '\n')
 
                 test_result = not writers.search(guest_role_list[guest]['roleDefinitionName'])
 
