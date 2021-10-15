@@ -13,7 +13,7 @@ except:
     raise ValueError('A valid subscription list is required to proceed.')
 
 
-def test_case_1():
+def compliance_check_1():
     """Least Privilege
     
     ID: NIST SP 800-53 Rev. 4 AC-6
@@ -44,7 +44,7 @@ def test_case_1():
         else:
             print('Security Control Assessment: “Other Than Satisfied”\n')
 
-def test_case_2():
+def compliance_check_2():
     """Access Enforcement
     
     ID: NIST SP 800-53 Rev. 4 AC-3
@@ -83,7 +83,7 @@ def test_case_2():
         # else:
         #     print('\nNo compute resources found for subscription:', sid_list[id])
 
-def test_case_3():
+def compliance_check_3():
     """Account Management
     
     ID: NIST SP 800-53 Rev. 4 AC-2

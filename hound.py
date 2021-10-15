@@ -17,11 +17,11 @@ except:
 
 
 def main():
-    print('\nCloud Cerberus checks starting...\n')
+    print('\nStarting regulatory assessments ...\n')
     
-    sca_collection.test_case_1()
-    sca_collection.test_case_2()
-    sca_collection.test_case_3()
+    sca_collection.compliance_check_1()
+    sca_collection.compliance_check_2()
+    sca_collection.compliance_check_3()
 
 
 if __name__ == '__main__':
