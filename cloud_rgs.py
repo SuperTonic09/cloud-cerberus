@@ -4,6 +4,7 @@
 import json
 import subprocess
 
+
 class Azure:
 
     def get_subs():
