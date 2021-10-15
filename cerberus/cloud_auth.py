@@ -1,10 +1,8 @@
 # Authenticates with multiple cloud providers.
 
 import subprocess
-from os import error
 
-from client_credentials import *
-
+from secret.client_credentials import *
 
 def az_login():
     # Microsoft Azure

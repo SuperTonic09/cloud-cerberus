@@ -8,19 +8,21 @@
 """Coding Exercise: Staff Security Engineer (Role)"""
 # =============================================================================
 
-import json
-import subprocess
-import sys
-
-import cloud_auth
-import sca_collection
+from cerberus import cloud_auth, sca_collection
 
 try:
     cloud_auth.az_login()
 except:
     raise ValueError('Failed to authenticate with provider(s)')
 
-print('\nCloud Cerberus checks starting...\n')
-sca_collection.test_case_1()
-sca_collection.test_case_2()
-sca_collection.test_case_3()
+
+def main():
+    print('\nCloud Cerberus checks starting...\n')
+    
+    sca_collection.test_case_1()
+    sca_collection.test_case_2()
+    sca_collection.test_case_3()
+
+
+if __name__ == '__main__':
+    main()

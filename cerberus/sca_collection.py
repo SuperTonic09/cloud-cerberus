@@ -4,7 +4,7 @@ import json
 import re
 import subprocess
 
-import cloud_rgs
+from cerberus import cloud_rgs
 
 try:
     # Get a global list of subscription IDs just once ——performance optimization.
