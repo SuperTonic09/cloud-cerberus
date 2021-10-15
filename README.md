@@ -32,40 +32,32 @@ The [General Access Control Guidance for Cloud Systems](https://csrc.nist.gov/pu
 The Azure Command-Line Interface ([CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)) allows the execution of commands through the terminal —for macOS run:
 `brew update && brew install azure-cli`
 
-The use of a [_virtual environment_](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=bash#use-python-virtual-environments) is recommended for the following step:
-`pip3 install -r requirements.txt`
-
 ## Usage
-`python3 cerberus.py`
+`cloud-cerberus % ./hound.py`
 
 ## NIST Prescribed Terminology
 - Each Security Control Assessment will return a value of: “Satisfied” or “Other Than Satisfied”
 
 ## Future Enhancement Considerations
-- Split the main code into smaller modules.
 - If absolutely required to call Azure CLI from Python, we would need to implement a function to properly parse `.invoke()` —as it always returns the error code as output.
 - Devise a mechanism to input a list, or policy sets, as a dynamic collection —rather than static checks.
 - Leverage cloud native solutions that map compliance domains and controls to NIST SP 800-53, like Azure Policy Regulatory Compliance built-in initiative definitions.
 - Expanding on the above, research if technical equivalents are feasible for Amazon Web Services, and Google Cloud Platform.
 - Consider adopting [Az.Cli](https://markwarneke.me/2021-03-14-Query-Azure-Resources-Using-Python/)
 - Since this demo is running [locally](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-authenticate#identity-when-running-the-app-locally), we are constrained from assigning a [managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). 
-_TBC_
 
 ## Author
 [Roberto Sosa](https://github.com/SuperTonic09)
 
 ## (Others) To Do
 - Review applicable licenses: Apache, or MIT
-- Search for top Azure CLI excerpts (3 examples at least)
-- Consider the mapping from the native Azure Compliance built-in initiative definitions
 
 ## References
 - [Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in initiative](https://docs.microsoft.com/en-us/azure/governance/policy/samples/nist-sp-800-53-r4)
 - [Configure your local Python dev environment for Azure](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=cmd)
 
-## Start Environment
+## (Optional) Start Environment
 ```
-cd /Users/robertos/Documents/databricks
 python3 -m venv .venv 
 source .venv/bin/activate
 ```
