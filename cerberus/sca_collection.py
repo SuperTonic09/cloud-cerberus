@@ -37,9 +37,9 @@ def compliance_check_1():
 
         print('Total number of owners identified:', owner_count, '\n')
 
-        test_result = owner_count <= 3
+        check_result = owner_count <= 3
 
-        if test_result:
+        if check_result:
             print('Security Control Assessment: “Satisfied”\n')
         else:
             print('Security Control Assessment: “Other Than Satisfied”\n')
@@ -71,11 +71,11 @@ def compliance_check_2():
                     'osProfile.linuxConfiguration.disablePasswordAuthentication'
                 az_vm_check = subprocess.check_output(az_vm_args, shell=True)
 
-                test_result = az_vm_check.decode().strip() == 'true'
+                check_result = az_vm_check.decode().strip() == 'true'
 
                 print('\nSSH Keys enabled on compute:', vm)
 
-                if test_result:
+                if check_result:
                     print('Security Control Assessment: “Satisfied”\n')
                 else:
                     print('Security Control Assessment: “Other Than Satisfied”\n')
@@ -117,9 +117,9 @@ def compliance_check_3():
 
                 print(json.dumps(guest_role_list, indent=4, sort_keys=True), '\n')
 
-                test_result = not writers.search(guest_role_list[guest]['roleDefinitionName'])
+                check_result = not writers.search(guest_role_list[guest]['roleDefinitionName'])
 
-                if test_result:
+                if check_result:
                     print('Security Control Assessment: “Satisfied”\n')
                 else:
                     print('Security Control Assessment: “Other Than Satisfied”\n')
