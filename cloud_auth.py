@@ -16,9 +16,9 @@ def az_login():
 def aws_login():
     # Amazon Web Services 
     print('No yet implemented')
-    return error
+    pass
 
 def gcp_login():
     # Google Cloud Platform
     print('No yet implemented')
-    return error
+    pass

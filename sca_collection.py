@@ -1,10 +1,10 @@
 # Performs Security Control Assessments.
 
 import json
+import re
 import subprocess
 
 import cloud_rgs
-
 
 try:
     # Get a global list of subscription IDs just once ——performance optimization.
@@ -14,9 +14,9 @@ except:
 
 
 def test_case_1():
-    """Account Management
+    """Least Privilege
     
-    ID: NIST SP 800-53 Rev. 4 AC-2
+    ID: NIST SP 800-53 Rev. 4 AC-6
     Description: It is recommended to designate up to 3 subscription owners 
     in order to reduce the potential for breach by a compromised owner.
 
@@ -43,8 +43,6 @@ def test_case_1():
             print('Security Control Assessment: “Satisfied”\n')
         else:
             print('Security Control Assessment: “Other Than Satisfied”\n')
-
-    return test_result
 
 def test_case_2():
     """Access Enforcement
@@ -73,16 +71,58 @@ def test_case_2():
                     'osProfile.linuxConfiguration.disablePasswordAuthentication'
                 az_vm_check = subprocess.check_output(az_vm_args, shell=True)
 
-                test_result = az_vm_check.decode().strip()
+                test_result = az_vm_check.decode().strip() == 'true'
 
                 print('\nSSH Keys enabled on compute:', vm)
 
-                if test_result == 'true':
+                if test_result:
                     print('Security Control Assessment: “Satisfied”\n')
                 else:
                     print('Security Control Assessment: “Other Than Satisfied”\n')
         
-        else:
-            print('\nNo compute resources found for subscription:', sid_list[id])
+        # else:
+        #     print('\nNo compute resources found for subscription:', sid_list[id])
 
-    return test_result
+def test_case_3():
+    """Account Management
+    
+    ID: NIST SP 800-53 Rev. 4 AC-2
+    Description: External accounts with write privileges should be removed 
+    from your subscription in order to prevent unmonitored access. 
+
+    Possible Remediating Actions:
+    Edit Azure Security Center default policy to start monitoring all the 
+    privileged external accounts that have access to the current subscription.
+    "parameters":{
+         "identityRemoveExternalAccountWithWritePermissionsMonitoringEffect":{
+            "value":"AuditIfNotExists"
+         }
+    """
+
+    az_guest_args = 'az ad user list --filter "UserType eq \'Guest\'"'
+
+    az_guest_query = subprocess.check_output(az_guest_args, shell=True)
+    az_guest_list = json.loads(az_guest_query)
+    
+    for guest in range(len(az_guest_list)):
+        for id in range(len(sid_list)):
+            az_role_args = 'az role assignment list --subscription ' + sid_list[id] \
+                + ' --include-inherited --assignee ' + az_guest_list[guest]['objectId']
+
+            az_role_check = subprocess.check_output(az_role_args, shell=True)
+            guest_role_list = json.loads(az_role_check)
+
+            if guest_role_list:
+                print(json.dumps(guest_role_list, indent=4, sort_keys=True), '\n')
+
+                writers = re.compile('Contributor|Owner|Admin', re.IGNORECASE)
+
+                test_result = not writers.search(guest_role_list[guest]['roleDefinitionName'])
+
+                if test_result:
+                    print('Security Control Assessment: “Satisfied”\n')
+                else:
+                    print('Security Control Assessment: “Other Than Satisfied”\n')
+
+            # else:
+            #     print('No external accounts found with write privileges in this subscription:', sid_list[id])
