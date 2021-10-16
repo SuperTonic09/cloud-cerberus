@@ -1,5 +1,4 @@
 .venv
-setenv.sh
 client_credentials.py
 __pycache__
 .DS_Store
