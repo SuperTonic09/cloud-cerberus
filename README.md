@@ -48,7 +48,7 @@ $ ./guardhound.py
 - Each Security Control Assessment will return a value of: “Satisfied” or “Other Than Satisfied”
 
 ## Future Enhancement Considerations
-- Create a pass/fail counter, and then step the `check_result` away from the inner loop —this helps cases where an object would satisfy a condition, but not in another scope; For example, a guest user has read access in subscription 1, and write permissions on subscription 2.
+- Create a pass|fail counter, and then step the `check_result` away from the inner loop —this helps cases where an object would satisfy a condition, but not in another scope; For example, a guest user has read access in subscription 1, and write permissions on subscription 2.
 - If absolutely required to call Azure CLI from Python, we would need to implement a function to properly parse `.invoke()` —as it always returns the error code as output.
 - Leverage cloud native solutions that map compliance domains and controls to NIST SP 800-53, like Azure Policy Regulatory Compliance built-in initiative definitions.
 - Expanding on the above, research if technical equivalents are feasible for Amazon Web Services, and Google Cloud Platform.
