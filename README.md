@@ -32,7 +32,9 @@ The [General Access Control Guidance for Cloud Systems](https://csrc.nist.gov/pu
 
 ## Prerequisites
 The Azure Command-Line Interface ([CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)) allows the execution of commands through the terminal —for macOS run:
-`brew update && brew install azure-cli`
+```
+brew update && brew install azure-cli
+```
 
 Please note, that to facilitate the local execution of the application, a client secret has been provided.
 
