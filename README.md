@@ -64,11 +64,6 @@ $ ./guardhound.py
 - [Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in initiative](https://docs.microsoft.com/en-us/azure/governance/policy/samples/nist-sp-800-53-r4)
 - [Configure your local Python dev environment for Azure](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=cmd)
 
-## (Optional) Start Environment
-```
-python3 -m venv .venv 
-source .venv/bin/activate
-```
 ## Notes on The Azure SDK for Python
 - The use of `azure.cli.core` is not as easy to read, for the purpose of adopting examples, as the management REST API.
 - Additionally, it appears that most of the community simply leverages the standard shell commands as-is.
