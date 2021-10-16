@@ -37,7 +37,7 @@ The Azure Command-Line Interface ([CLI](https://docs.microsoft.com/en-us/cli/azu
 Please note, that to facilitate the local execution of the application, a client secret has been provided.
 
 ## Usage
-`cloud-cerberus % ./hound.py`
+`cloud-cerberus % ./guardhound.py.py`
 
 ## NIST Prescribed Terminology
 - Each Security Control Assessment will return a value of: “Satisfied” or “Other Than Satisfied”
