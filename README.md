@@ -1,6 +1,3 @@
-#### Version 202102
-### Coding Exercise: Staff Security Engineer
-
 This sample project aims to demonstrate how to validate a given set of compliance controls for a system —using Python.
 
 # Cloud Cerberus
@@ -25,7 +22,7 @@ For this proof of concept, we will be evaluating the following environment(s):
 }
 ```
 
-A service principal object was created, and given Directory Read permissions. Those steps are not detailed in this document; but if you wish to evaluate the tenant, external invites can be provided upon request.
+A service principal object was created, and given Directory Read permissions. Those steps are not detailed in this document; but if you wish to evaluate the tenant, external invites may be provided upon request.
 
 ## Approach
 The [General Access Control Guidance for Cloud Systems](https://csrc.nist.gov/publications/detail/sp/800-210/final) served as the initial reference for this assignment as it represents a comprehensive understanding of security challenges in cloud systems for all three service delivery models —Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Although the appendix provides a layout for the control families listed in NIST SP 800-53, after analyzing these, one will find that the guidance provided can still be quite broad and not particularly prescriptive (in terms of programmatic conditions) to a provider specific configuration. And thus, to make each case example easier to illustrate, we also considered expressing our interpretations of the Cybersecurity Framework (CSF) as a mapping to other standards where applicable —for example CIS Controls, or the Cloud Controls Matrix (CCM). This was not meant to avoid any definitions from our initial requirements, but instead to facilitate our implementation where such sub-controls are written more explicitly. The latter was fundamental in our research process during preparation for this activity.
@@ -36,7 +33,7 @@ The Azure Command-Line Interface ([CLI](https://docs.microsoft.com/en-us/cli/azu
 brew update && brew install azure-cli
 ```
 
-Please note, that to facilitate the local execution of the application, a client secret has been provided.
+Please note, that to facilitate local execution of the application, a client secret needs to be provided.
 
 ## Usage
 ```
@@ -56,9 +53,6 @@ $ ./guardhound.py
 
 ## Author
 [Roberto Sosa](https://github.com/SuperTonic09)
-
-## (Others) To Do
-- Review applicable licenses: Apache, or MIT
 
 ## References
 - [Details of the NIST SP 800-53 Rev. 4 Regulatory Compliance built-in initiative](https://docs.microsoft.com/en-us/azure/governance/policy/samples/nist-sp-800-53-r4)
