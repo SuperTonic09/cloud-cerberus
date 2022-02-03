@@ -5,8 +5,7 @@
 # Version : 0.1.2
 # Status  : Prototype
 # =============================================================================
-"""Coding Exercise: Staff Security Engineer (Role)"""
-# =============================================================================
+
 
 from cerberus import cloud_auth, sca_collection
 
